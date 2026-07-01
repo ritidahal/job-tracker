@@ -2,8 +2,8 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #f5f5f3;
-  color: #1a1a18;
+  background: #EBF2FB;
+  color: #0D2B4E;
   min-height: 100vh;
 }
 
@@ -20,18 +20,21 @@ header {
   margin-bottom: 2rem;
   flex-wrap: wrap;
   gap: 1rem;
+  background: #1A4F8A;
+  padding: 1.5rem 2rem;
+  border-radius: 14px;
 }
 
 h1 {
   font-size: 24px;
   font-weight: 600;
-  color: #1a1a18;
+  color: #fff;
   margin-bottom: 4px;
 }
 
 .subtitle {
   font-size: 14px;
-  color: #888780;
+  color: #B8D4F0;
 }
 
 .stats {
@@ -43,21 +46,22 @@ h1 {
 
 .stat {
   background: #fff;
-  border: 0.5px solid #e0dfd8;
+  border: 0.5px solid #B8D4F0;
   border-radius: 10px;
   padding: 0.875rem 1rem;
+  border-top: 3px solid #1A4F8A;
 }
 
 .stat-label {
   font-size: 12px;
-  color: #888780;
+  color: #5A7FA8;
   margin-bottom: 4px;
 }
 
 .stat-val {
   font-size: 24px;
   font-weight: 600;
-  color: #1a1a18;
+  color: #1A4F8A;
 }
 
 .toolbar {
@@ -71,21 +75,21 @@ h1 {
 .toolbar select {
   font-size: 14px;
   padding: 8px 12px;
-  border: 0.5px solid #d3d1c7;
+  border: 0.5px solid #B8D4F0;
   border-radius: 8px;
   background: #fff;
-  color: #1a1a18;
+  color: #0D2B4E;
   height: 38px;
   outline: none;
 }
 
 .toolbar input { flex: 1; min-width: 200px; }
 .toolbar input:focus,
-.toolbar select:focus { border-color: #888780; }
+.toolbar select:focus { border-color: #1A4F8A; box-shadow: 0 0 0 3px rgba(26,79,138,0.1); }
 
 .table-wrap {
   background: #fff;
-  border: 0.5px solid #e0dfd8;
+  border: 0.5px solid #B8D4F0;
   border-radius: 12px;
   overflow-x: auto;
 }
@@ -100,18 +104,19 @@ th {
   text-align: left;
   font-size: 11px;
   font-weight: 600;
-  color: #888780;
+  color: #5A7FA8;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   padding: 12px 16px;
-  border-bottom: 0.5px solid #e0dfd8;
+  border-bottom: 0.5px solid #D6E8F8;
+  background: #F0F7FF;
   white-space: nowrap;
 }
 
 td {
   padding: 12px 16px;
-  border-bottom: 0.5px solid #f0efe8;
-  color: #1a1a18;
+  border-bottom: 0.5px solid #EBF2FB;
+  color: #0D2B4E;
   vertical-align: middle;
   max-width: 180px;
   overflow: hidden;
@@ -120,7 +125,7 @@ td {
 }
 
 tr:last-child td { border-bottom: none; }
-tbody tr:hover td { background: #fafaf8; }
+tbody tr:hover td { background: #F0F7FF; }
 
 .badge {
   display: inline-block;
@@ -131,11 +136,11 @@ tbody tr:hover td { background: #fafaf8; }
   white-space: nowrap;
 }
 
-.s-Applied    { background: #E6F1FB; color: #0C447C; }
-.s-Screening  { background: #FAEEDA; color: #633806; }
-.s-Interview  { background: #EAF3DE; color: #27500A; }
+.s-Applied    { background: #DDEEFF; color: #0C447C; }
+.s-Screening  { background: #FFF3CD; color: #7A5000; }
+.s-Interview  { background: #D4EDDA; color: #155724; }
 .s-Rejected   { background: #FCEBEB; color: #791F1F; }
-.s-On-Hold    { background: #F1EFE8; color: #444441; }
+.s-On-Hold    { background: #E2EAF4; color: #2C4A72; }
 
 .actions { display: flex; gap: 4px; }
 
@@ -143,7 +148,7 @@ tbody tr:hover td { background: #fafaf8; }
   background: none;
   border: none;
   cursor: pointer;
-  color: #b4b2a9;
+  color: #5A7FA8;
   padding: 5px;
   border-radius: 6px;
   font-size: 15px;
@@ -151,48 +156,48 @@ tbody tr:hover td { background: #fafaf8; }
   transition: color 0.15s, background 0.15s;
 }
 
-.icon-btn:hover { color: #1a1a18; background: #f0efe8; }
+.icon-btn:hover { color: #1A4F8A; background: #EBF2FB; }
 
 .empty {
   text-align: center;
   padding: 3rem;
-  color: #888780;
+  color: #5A7FA8;
   font-size: 14px;
 }
 
 .btn-primary {
-  background: #1a1a18;
-  color: #fff;
+  background: #fff;
+  color: #1A4F8A;
   border: none;
   border-radius: 8px;
   padding: 9px 18px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
-  transition: opacity 0.15s;
+  transition: background 0.15s, color 0.15s;
 }
 
-.btn-primary:hover { opacity: 0.82; }
+.btn-primary:hover { background: #D6E8F8; }
 
 .btn-cancel {
   background: none;
-  border: 0.5px solid #d3d1c7;
+  border: 0.5px solid #B8D4F0;
   border-radius: 8px;
   padding: 9px 18px;
   font-size: 14px;
   cursor: pointer;
-  color: #1a1a18;
+  color: #1A4F8A;
   transition: background 0.15s;
 }
 
-.btn-cancel:hover { background: #f5f5f3; }
+.btn-cancel:hover { background: #EBF2FB; }
 
 .modal-bg {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(13, 43, 78, 0.4);
   z-index: 100;
   align-items: center;
   justify-content: center;
@@ -204,7 +209,7 @@ tbody tr:hover td { background: #fafaf8; }
 .modal {
   background: #fff;
   border-radius: 14px;
-  border: 0.5px solid #e0dfd8;
+  border: 0.5px solid #B8D4F0;
   padding: 1.75rem;
   width: 100%;
   max-width: 480px;
@@ -214,7 +219,7 @@ tbody tr:hover td { background: #fafaf8; }
   font-size: 17px;
   font-weight: 600;
   margin-bottom: 1.25rem;
-  color: #1a1a18;
+  color: #1A4F8A;
 }
 
 .form-grid {
@@ -229,23 +234,27 @@ tbody tr:hover td { background: #fafaf8; }
 .field label {
   font-size: 12px;
   font-weight: 500;
-  color: #5f5e5a;
+  color: #5A7FA8;
 }
 
 .field input,
 .field select {
   font-size: 14px;
   padding: 8px 11px;
-  border: 0.5px solid #d3d1c7;
+  border: 0.5px solid #B8D4F0;
   border-radius: 8px;
-  background: #fafaf8;
-  color: #1a1a18;
+  background: #F0F7FF;
+  color: #0D2B4E;
   outline: none;
   width: 100%;
 }
 
 .field input:focus,
-.field select:focus { border-color: #888780; background: #fff; }
+.field select:focus {
+  border-color: #1A4F8A;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(26,79,138,0.1);
+}
 
 .modal-footer {
   display: flex;
@@ -253,6 +262,13 @@ tbody tr:hover td { background: #fafaf8; }
   gap: 8px;
   margin-top: 1.5rem;
 }
+
+.modal-footer .btn-primary {
+  background: #1A4F8A;
+  color: #fff;
+}
+
+.modal-footer .btn-primary:hover { background: #153F6E; }
 
 @media (max-width: 600px) {
   .form-grid { grid-template-columns: 1fr; }
