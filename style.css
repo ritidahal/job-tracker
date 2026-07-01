@@ -270,6 +270,99 @@ tbody tr:hover td { background: #F0F7FF; }
 
 .modal-footer .btn-primary:hover { background: #153F6E; }
 
+.progress-card {
+  background: #fff;
+  border: 0.5px solid #B8D4F0;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.progress-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A4F8A;
+  margin-bottom: 3px;
+}
+
+.progress-sub {
+  font-size: 13px;
+  color: #5A7FA8;
+  max-width: 480px;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+}
+
+.progress-emoji {
+  font-size: 26px;
+  transition: all 0.3s ease;
+}
+
+.milestones {
+  position: relative;
+  height: 36px;
+  margin-bottom: 4px;
+}
+
+.milestone {
+  position: absolute;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.milestone-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #D6E8F8;
+  margin: 0 auto 4px;
+  transition: background 0.3s;
+}
+
+.milestone-dot.reached { background: #1A4F8A; }
+
+.milestone-label {
+  font-size: 9px;
+  color: #B8D4F0;
+  white-space: nowrap;
+}
+
+.milestone-label.reached {
+  color: #1A4F8A;
+  font-weight: 600;
+}
+
+.bar-wrap {
+  height: 22px;
+  background: #EBF2FB;
+  border-radius: 20px;
+  border: 0.5px solid #B8D4F0;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 20px;
+  background: #1A4F8A;
+  transition: width 0.5s ease;
+  min-width: 0;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #5A7FA8;
+}
+
 @media (max-width: 600px) {
   .form-grid { grid-template-columns: 1fr; }
   .field.full { grid-column: 1; }
