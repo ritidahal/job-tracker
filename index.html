@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Application Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Job tracker</h1>
+        <p class="subtitle">Keep track of every application in one place</p>
+      </div>
+      <button class="btn-primary" onclick="openModal()">+ Add job</button>
+    </header>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="toolbar">
+      <input type="text" id="search" placeholder="Search company or position..." oninput="render()" />
+      <select id="filterStatus" onchange="render()">
+        <option value="">All statuses</option>
+        <option>Applied</option>
+        <option>Screening</option>
+        <option>Interview</option>
+        <option>Rejected</option>
+        <option>On Hold</option>
+      </select>
+      <select id="filterType" onchange="render()">
+        <option value="">All types</option>
+        <option>Full Time</option>
+        <option>Part Time</option>
+        <option>Remote</option>
+        <option>Hybrid</option>
+        <option>Onsite</option>
+      </select>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Date applied</th>
+            <th>Status</th>
+            <th>Job type</th>
+            <th>Location</th>
+            <th>Salary</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal-bg" id="modalBg">
+    <div class="modal">
+      <h2 id="modalTitle">Add job</h2>
+      <div class="form-grid">
+        <div class="field full">
+          <label for="fCompany">Company name *</label>
+          <input id="fCompany" type="text" placeholder="e.g. Sanford Health" />
+        </div>
+        <div class="field full">
+          <label for="fPosition">Position *</label>
+          <input id="fPosition" type="text" placeholder="e.g. Data Analyst" />
+        </div>
+        <div class="field">
+          <label for="fDate">Date applied</label>
+          <input id="fDate" type="date" />
+        </div>
+        <div class="field">
+          <label for="fStatus">Status</label>
+          <select id="fStatus">
+            <option>Applied</option>
+            <option>Screening</option>
+            <option>Interview</option>
+            <option>Rejected</option>
+            <option>On Hold</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fType">Job type</label>
+          <select id="fType">
+            <option>Full Time</option>
+            <option>Part Time</option>
+            <option>Remote</option>
+            <option>Hybrid</option>
+            <option>Onsite</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fLocation">Location</label>
+          <input id="fLocation" type="text" placeholder="e.g. Sioux Falls, SD" />
+        </div>
+        <div class="field full">
+          <label for="fSalary">Salary (optional)</label>
+          <input id="fSalary" type="text" placeholder="e.g. $65,000" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+        <button class="btn-primary" onclick="saveJob()">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
