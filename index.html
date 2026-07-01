@@ -18,6 +18,24 @@
 
     <div class="stats" id="stats"></div>
 
+    <div class="progress-card">
+      <div class="progress-header">
+        <div>
+          <div class="progress-title">Your job hunt journey</div>
+          <div class="progress-sub" id="progressMessage">Every legend starts somewhere. Today is day one!</div>
+        </div>
+        <span class="progress-emoji" id="progressEmoji">🌱</span>
+      </div>
+      <div class="milestones" id="milestones"></div>
+      <div class="bar-wrap">
+        <div class="bar-fill" id="barFill" style="width:0%"></div>
+      </div>
+      <div class="progress-label">
+        <span id="progressCount">0 jobs applied</span>
+        <span id="progressPct">0%</span>
+      </div>
+    </div>
+
     <div class="toolbar">
       <input type="text" id="search" placeholder="Search company or position..." oninput="render()" />
       <select id="filterStatus" onchange="render()">
