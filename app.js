@@ -1,6 +1,63 @@
 let jobs = JSON.parse(localStorage.getItem('jobs') || '[]');
 let editId = null;
 
+const milestones = [
+  { pct: 0,   emoji: '🌱', label: 'Day one',    msg: 'Every legend starts somewhere. Today is day one!' },
+  { pct: 5,   emoji: '🚀', label: '5 jobs',     msg: 'Look at you go! 5 jobs applied to. Your future employer is already nervous.' },
+  { pct: 10,  emoji: '☕', label: '10 jobs',     msg: '10 down. You deserve a coffee. Actually, you deserve the whole cafe.' },
+  { pct: 20,  emoji: '💪', label: '20 jobs',     msg: '20 jobs! Your LinkedIn profile is practically glowing at this point.' },
+  { pct: 30,  emoji: '🎯', label: '30 jobs',     msg: 'Statistically speaking, someone out there is about to make the best hire of their life.' },
+  { pct: 40,  emoji: '🧘', label: '40 jobs',     msg: '40 jobs deep. You have achieved a zen-like acceptance of rejection. Respect.' },
+  { pct: 50,  emoji: '🏆', label: 'Halfway!',    msg: 'HALFWAY THERE! You are officially a professional job hunter. Put it on your resume.' },
+  { pct: 60,  emoji: '🔥', label: '60 jobs',     msg: '60 jobs applied. Your keyboard should be awarded a medal of honor.' },
+  { pct: 70,  emoji: '🦸', label: '70 jobs',     msg: 'At this point you have more persistence than most superheroes. No cape required.' },
+  { pct: 80,  emoji: '😤', label: '80 jobs',     msg: '80 jobs. Somewhere a recruiter is reading your name and thinking "this person means business."' },
+  { pct: 90,  emoji: '⚡', label: 'Almost!',     msg: 'So close you can smell the offer letter. Keep going, you absolute legend.' },
+  { pct: 100, emoji: '🎉', label: 'Hired soon!', msg: 'You applied to 100 jobs. At this point the universe OWES you an offer. It is coming.' },
+];
+
+function buildMilestones() {
+  const container = document.getElementById('milestones');
+  if (!container) return;
+  container.innerHTML = '';
+  milestones.forEach(m => {
+    const el = document.createElement('div');
+    el.className = 'milestone';
+    el.style.left = m.pct + '%';
+    el.innerHTML = `<div class="milestone-dot"></div><div class="milestone-label">${m.label}</div>`;
+    container.appendChild(el);
+  });
+}
+
+function updateProgress() {
+  const total = jobs.length;
+  const pct = Math.min(Math.round((total / 100) * 100), 100);
+
+  const fill = document.getElementById('barFill');
+  const countEl = document.getElementById('progressCount');
+  const pctEl = document.getElementById('progressPct');
+  const msgEl = document.getElementById('progressMessage');
+  const emojiEl = document.getElementById('progressEmoji');
+
+  if (fill) fill.style.width = pct + '%';
+  if (countEl) countEl.textContent = total + ' job' + (total !== 1 ? 's' : '') + ' applied';
+  if (pctEl) pctEl.textContent = pct + '% to 100';
+
+  let current = milestones[0];
+  for (const m of milestones) {
+    if (pct >= m.pct) current = m;
+  }
+
+  if (msgEl) msgEl.textContent = current.msg;
+  if (emojiEl) emojiEl.textContent = current.emoji;
+
+  document.querySelectorAll('.milestone-dot').forEach((dot, i) => {
+    const reached = pct >= milestones[i].pct;
+    dot.classList.toggle('reached', reached);
+    dot.nextElementSibling.classList.toggle('reached', reached);
+  });
+}
+
 function save() {
   localStorage.setItem('jobs', JSON.stringify(jobs));
 }
@@ -45,6 +102,7 @@ function render() {
   }
 
   renderStats();
+  updateProgress();
 }
 
 function formatDate(d) {
@@ -145,4 +203,5 @@ document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') closeModal();
 });
 
+buildMilestones();
 render();
